@@ -39,8 +39,9 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Custom hooks
+### useIncrement
+The useIncrement hook just increments the number by 1 and returns the array with count and the function to increment the count. The function can be assigned to onClick of any button to increase the count on click.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Note: The states used in the hooks won't conflict if the hook is used in different places

@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Label } from './components/Label';
+import { useIncrement } from './hooks/useIncrement';
+import { Increment } from './components/Increment';
 
 function App() {
+  const [count, increment] = useIncrement(0);
+
+  useEffect(() => {
+    const handle = setInterval(increment, 1000);
+    return (() => {
+      clearInterval(handle);
+    })
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
@@ -19,7 +29,9 @@ function App() {
         >
           Learn React hooks
         </a>
-        <Label text="Some text goes here" />
+        <Label text="Click on the button below to increase the value by 1" />
+        <Increment />
+        This number increases automatically: {count}
       </header>
     </div>
   );
