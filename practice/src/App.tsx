@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Label } from './components/Label';
@@ -7,6 +7,8 @@ import { Increment } from './components/Increment';
 
 function App() {
   const [count, increment] = useIncrement(0);
+
+  const [name, setName] = useState('');
 
   useEffect(() => {
     const handle = setInterval(increment, 1000);
@@ -32,6 +34,12 @@ function App() {
         <Label text="Click on the button below to increase the value by 1" />
         <Increment />
         This number increases automatically: {count}
+
+        <p>Enter some value: </p>
+        <input type="text" onChange={e => setName(e.target.value)}></input>
+
+        <p>Value entered is {name}</p>
+
       </header>
     </div>
   );
